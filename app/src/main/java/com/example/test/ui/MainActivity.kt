@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.test.ui.component.AppNavigationGraph
+import com.example.test.ui.navigation.AppNavigationGraph
 import com.example.test.ui.theme.TestTheme
 import dagger.hilt.android.AndroidEntryPoint
 

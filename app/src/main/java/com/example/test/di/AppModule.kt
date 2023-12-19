@@ -5,6 +5,8 @@ import com.example.test.data.api.ApiService
 import com.example.test.data.datasource.NewsDataSource
 import com.example.test.data.datasource.NewsDataSourceImpl
 import com.example.test.ui.repository.NewsRepository
+import com.squareup.moshi.FromJson
+import com.squareup.moshi.JsonReader
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -37,7 +39,10 @@ class AppModule {
             readTimeout(60,TimeUnit.SECONDS)
         }
 
-        val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+        val moshi = Moshi.Builder()
+            .add(NULL_TO_EMPTY_STRING_ADAPTER)
+            .add(KotlinJsonAdapterFactory()).build()
+
 
         return Retrofit.Builder()
             .baseUrl(AppConstants.APP_BASE_URL)
@@ -45,7 +50,16 @@ class AppModule {
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
     }
-
+    object NULL_TO_EMPTY_STRING_ADAPTER {
+        @FromJson
+        fun fromJson(reader: JsonReader): String {
+            if (reader.peek() != JsonReader.Token.NULL) {
+                return reader.nextString()
+            }
+            reader.nextNull<Unit>()
+            return ""
+        }
+    }
     @Singleton
     @Provides
     fun providesApiService(retrofit: Retrofit): ApiService {
