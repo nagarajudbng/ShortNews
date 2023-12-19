@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "test"
 include(":app")
+include(":utilities")
