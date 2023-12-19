@@ -13,8 +13,7 @@ object Versions {
     const val material="1.11.0"
     const val appCompact="1.6.1"
 
-    const val hiltCompiler= "1.0.0"
-    const val hiltWork= "1.0.0"
+    const val hiltCompiler= "1.0.0-alpha01"
     const val hiltAndroidCompiler= "2.48"
     const val hiltAndroid= "2.48"
 }

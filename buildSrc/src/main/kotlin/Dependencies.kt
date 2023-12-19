@@ -21,7 +21,6 @@ object Dependencies {
     val hiltAndroid by lazy  {"com.google.dagger:hilt-android:${Versions.hiltAndroid}"}
     val hiltAndroidCompiler by lazy { "com.google.dagger:hilt-android-compiler:${Versions
         .hiltAndroidCompiler}"}
-    val hiltWork by lazy {  "androidx.hilt:hilt-work:${Versions.hiltWork}"}
     val hiltCompiler by lazy {"androidx.hilt:hilt-compiler:${Versions.hiltCompiler}"}
 }
 
