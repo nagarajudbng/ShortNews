@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.test.ui.component.Loader
+import com.example.test.ui.component.NewsList
 import com.example.test.ui.viewmodel.NewsViewModel
 import com.example.utilities.ResourceState
 
@@ -30,6 +31,7 @@ fun HomeScreen(
             is ResourceState.Success ->{
                 val response = (newsRes as ResourceState.Success).data
                 Log.d(TAG,"Inside_Success ${response.status} = ${response.totalResults}")
+                NewsList(response)
             }
             is ResourceState.Error -> {
                 val error = (newsRes as ResourceState.Error)
@@ -38,6 +40,8 @@ fun HomeScreen(
         }
     }
 }
+
+
 
 @Preview
 @Composable
