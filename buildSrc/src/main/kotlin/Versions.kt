@@ -1,5 +1,6 @@
 object Versions {
 
+    const val coil = "2.2.0"
     const val splashScreen ="1.0.1"
     const val coreKtx = "1.12.0"
     const val kotlinBom = "1.8.0"

@@ -58,6 +58,8 @@ object Dependencies {
             ".kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"}
 
     val splashScreen by lazy{"androidx.core:core-splashscreen:${Versions.splashScreen}"}
+
+    val coil by lazy {"io.coil-kt:coil-compose:${Versions.coil}"}
 }
 
 object Modules{

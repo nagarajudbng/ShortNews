@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">test</string>
+    <string name="no_news">No News As of now Please check in some time!</string>
 </resources>

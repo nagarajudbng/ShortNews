@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.test.data.entity.NewsResponse
+import com.example.test.ui.component.EmptyStateComponent
 import com.example.test.ui.component.Loader
 import com.example.test.ui.component.NewsList
 import com.example.test.ui.component.NewsRowComponent
@@ -60,6 +61,8 @@ fun VerticalPagerView(newsRes: ResourceState<NewsResponse>) {
                 Log.d(TAG,"Inside_Success ${response.status} = ${response.totalResults}")
                 if(response.articles.isNotEmpty()) {
                     NewsRowComponent(page, response.articles.get(page))
+                } else {
+                     EmptyStateComponent()
                 }
             }
             is ResourceState.Error -> {
